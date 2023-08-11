@@ -35,7 +35,8 @@ object BookstoreRepository {
               query[Book]
                 .insertValue(book)
                 .onConflictUpdate(_.title)(
-                  _.authorId -> _.authorId
+                  _.mediaType -> _.mediaType,
+                  _.authorId -> _.authorId,
                 )
             }
         ).transact(xa).void

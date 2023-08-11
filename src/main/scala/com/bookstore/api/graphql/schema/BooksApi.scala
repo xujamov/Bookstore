@@ -29,13 +29,14 @@ class BooksApi[F[_]: Sync](implicit dispatcher: Dispatcher[F]) {
     @GraphQLField
     def create(
         ctx: Context[Ctx[F], Unit],
+        mediaType: String,
         title: String,
         authorId: Int,
       ): Future[String] = {
       val createTask = for {
         id <- Sync[F].delay(UUID.randomUUID())
         now <- Sync[F].delay(ZonedDateTime.now)
-        book = Book(id, title, authorId, now)
+        book = Book(id, title, mediaType, authorId, now)
         _ <- ctx.ctx.books.createBook(book)
       } yield "Ok"
       dispatcher.unsafeToFuture(createTask)

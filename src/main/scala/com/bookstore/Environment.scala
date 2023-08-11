@@ -78,6 +78,7 @@ object Environment {
         book = Book(
           id = id,
           title = bookResp.name,
+          mediaType = bookResp.mediaType,
           authorId = 0,
           createdAt = createdAt,
         )

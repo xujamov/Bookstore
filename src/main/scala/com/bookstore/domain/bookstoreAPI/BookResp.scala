@@ -6,10 +6,10 @@ import io.circe.generic.JsonCodec
 
 @JsonCodec
 case class BookResp(
-    id: UUID,
+//    id: UUID,
     name: String,
     mediaType: String,
-    url: String,
-    numberOfPages: Int,
-    authorId: List[Int],
+//    url: String,
+//    numberOfPages: Int,
+    authors: List[String],
   )

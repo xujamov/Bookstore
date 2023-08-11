@@ -9,6 +9,7 @@ import io.circe.generic.JsonCodec
 case class Book(
     id: UUID,
     title: String,
+    mediaType: String,
     authorId: Int,
     createdAt: ZonedDateTime,
   )

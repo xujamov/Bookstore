@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS books(
   id UUID PRIMARY KEY,
   title VARCHAR NOT NULL UNIQUE,
-  authorId INT NOT NULL,
+  media_type VARCHAR NOT NULL,
+  author_id INT NOT NULL,
   created_at TIMESTAMP WITH TIME ZONE NOT NULL
 );
